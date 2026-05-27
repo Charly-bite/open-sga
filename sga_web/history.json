@@ -2556,5 +2556,4139 @@
                 "IFF-QB00052"
             ]
         }
+    },
+    {
+        "timestamp": "2026-05-25 12:46:59",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00151"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 12:55:05",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "IFF-QB00019",
+                "IFF-QB00250",
+                "IFF-QB00030",
+                "IFF-QB00103"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 12:57:43",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00005",
+                "VAR-QB00005"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 12:58:47",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "ASH-QB00058",
+                "ASH-QB00058"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 12:59:39",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "ASH-QB00032"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:00:28",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 3,
+            "items": [
+                "IFF-QB00165",
+                "IFF-QB00342",
+                "IFF-QB00103"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:03:43",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00105"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:04:54",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "VAR-QB00070",
+                "VAR-QB00041",
+                "VAR-QB00030",
+                "VAR-QB00030"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:07:16",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 5,
+            "items": [
+                "VAR-QB00118",
+                "IFF-QB00045",
+                "IFF-QB00257",
+                "IFF-QB00003",
+                "IFF-QB00026"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:11:39",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00290",
+                "VAR-QB00146"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:12:32",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 5,
+            "items": [
+                "IFF-QB00290",
+                "IFF-QB00023",
+                "IFF-QB00005",
+                "IFF-QB00007",
+                "IFF-QB00014"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:13:37",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00146"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:31:24",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "PRUEBA-01"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:38:24",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00033",
+                "VAR-QB00040"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:39:24",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "IFF-QB00010",
+                "IFF-QB00019",
+                "VAR-QB00177",
+                "IFF-QB00024"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:39:35",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "PRUEBA-01"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:43:22",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00008",
+                "VAR-QB00111"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:44:12",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00008",
+                "VAR-QB00111"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:44:40",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "PRUEBA-01"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:45:44",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "PRUEBA-01"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:55:40",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 8,
+            "items": [
+                "IFF-QB00173",
+                "IFF-QB00232",
+                "IFF-QB00046",
+                "IFF-QB00091",
+                "IFF-QB00093",
+                "IFF-QB00227",
+                "IFF-QB00165",
+                "IFF-QB00068"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:57:01",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "KAO-QB00019",
+                "ASH-QB00047"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 13:57:38",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "KAO-QB00028"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 14:17:59",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "IFF-QB00067",
+                "IFF-QB00047",
+                "IFF-QB00041",
+                "IFF-QB00200"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 14:18:44",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00037",
+                "ASH-QB00058"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 14:38:20",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 5,
+            "items": [
+                "IFF-QB00256",
+                "IFF-QB00023",
+                "IFF-QB00049",
+                "IFF-QB00013",
+                "IFF-QB00067"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 14:45:40",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00067"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:04:28",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "32012068",
+            "new_lote": "32026656",
+            "old_date": "2026-01-07",
+            "new_date": "2026-03-26",
+            "old_elab_date": "2026-01-07",
+            "new_elab_date": "2026-03-26",
+            "old_reinsp_date": "2027-01-07",
+            "new_reinsp_date": "2027-03-26",
+            "date": "2026-05-25 15:04:28",
+            "user": "admin",
+            "product_id": "KAO-QB00062"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:04:34",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "32034768",
+            "new_lote": "32026656",
+            "old_date": "2026-04-30",
+            "new_date": "2026-03-26",
+            "old_elab_date": "2026-04-30",
+            "new_elab_date": "2026-03-26",
+            "old_reinsp_date": "2028-04-30",
+            "new_reinsp_date": "2027-03-26",
+            "date": "2026-05-25 15:04:34",
+            "user": "admin",
+            "product_id": "KAO-QB00062"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:04:34",
+        "event_type": "product_edit",
+        "user": "admin",
+        "details": {
+            "product_code": "KAO-QB00062",
+            "changes": {
+                "lote": "32026656",
+                "lote_date": "2026-03-26",
+                "lote_reinspection_date": "2027-03-26",
+                "force_history": true,
+                "lote_history": [
+                    {
+                        "old_lote": "32034768",
+                        "new_lote": "32026656",
+                        "old_date": "2026-04-30",
+                        "new_date": "2026-03-26",
+                        "old_elab_date": "2026-04-30",
+                        "new_elab_date": "2026-03-26",
+                        "old_reinsp_date": "2028-04-30",
+                        "new_reinsp_date": "2027-03-26",
+                        "date": "2026-05-25 15:04:34",
+                        "user": "admin"
+                    },
+                    {
+                        "old_lote": "32016003",
+                        "new_lote": "32034768",
+                        "old_date": "2026-01-16",
+                        "new_date": "2026-04-30",
+                        "old_elab_date": "2026-01-16",
+                        "new_elab_date": "2026-04-30",
+                        "old_reinsp_date": "2028-01-16",
+                        "new_reinsp_date": "2028-04-30",
+                        "date": "2026-05-25 12:02:47",
+                        "user": "admin"
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "2026-04-24 15:29:41",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "NaT",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "32012068",
+                        "old_date": "",
+                        "new_date": "2026-01-07",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    }
+                ],
+                "lotes_info": {
+                    "32016003": {
+                        "fecha_elaboracion": "2026-01-16",
+                        "fecha_inspeccion": "2028-01-16"
+                    },
+                    "32012068": {
+                        "fecha_elaboracion": "2026-01-07",
+                        "fecha_inspeccion": ""
+                    },
+                    "31144707": {
+                        "fecha_elaboracion": "2025-04-19",
+                        "fecha_inspeccion": "2027-04-19"
+                    },
+                    "31155478": {
+                        "fecha_elaboracion": "2025-07-08",
+                        "fecha_inspeccion": "2027-07-08"
+                    },
+                    "32034768": {
+                        "fecha_elaboracion": "2026-04-30",
+                        "fecha_inspeccion": "2028-04-30"
+                    },
+                    "32026656": {
+                        "fecha_elaboracion": "2026-03-26",
+                        "fecha_inspeccion": "2027-03-26"
+                    }
+                }
+            },
+            "source": "control_interno"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:04:54",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "717-060226",
+            "new_lote": "717-210426",
+            "old_date": "2026-01-01",
+            "new_date": "2026-04-01",
+            "old_elab_date": "2026-01-01",
+            "new_elab_date": "2026-04-01",
+            "old_reinsp_date": "2027-01-01",
+            "new_reinsp_date": "2027-04-01",
+            "date": "2026-05-25 15:04:54",
+            "user": "admin",
+            "product_id": "VAR-QB00140"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:04:54",
+        "event_type": "product_edit",
+        "user": "admin",
+        "details": {
+            "product_code": "VAR-QB00140",
+            "changes": {
+                "lote": "717-210426",
+                "lote_date": "2026-04-01",
+                "lote_reinspection_date": "2027-04-01",
+                "force_history": true,
+                "lote_history": [
+                    {
+                        "old_lote": "717-060226",
+                        "new_lote": "717-210426",
+                        "old_date": "2026-01-01",
+                        "new_date": "2026-04-01",
+                        "old_elab_date": "2026-01-01",
+                        "new_elab_date": "2026-04-01",
+                        "old_reinsp_date": "2027-01-01",
+                        "new_reinsp_date": "2027-04-01",
+                        "date": "2026-05-25 15:04:54",
+                        "user": "admin"
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "2026-04-17 16:04:05",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "NaT",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "717-060226",
+                        "old_date": "",
+                        "new_date": "2026-01-01",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    }
+                ],
+                "lotes_info": {
+                    "717-231025": {
+                        "fecha_elaboracion": "2025-10-01",
+                        "fecha_inspeccion": "2027-10-01"
+                    },
+                    "717-060226": {
+                        "fecha_elaboracion": "2026-01-01",
+                        "fecha_inspeccion": ""
+                    },
+                    "717-211125": {
+                        "fecha_elaboracion": "2025-11-01",
+                        "fecha_inspeccion": "2026-11-01"
+                    },
+                    "717-260825": {
+                        "fecha_elaboracion": "2025-08-01",
+                        "fecha_inspeccion": "2026-08-01"
+                    },
+                    "717-210426": {
+                        "fecha_elaboracion": "2026-04-01",
+                        "fecha_inspeccion": "2027-04-01"
+                    }
+                }
+            },
+            "source": "control_interno"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:06:31",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "0018835974",
+            "new_lote": "0019275145",
+            "old_date": "2025-10-23",
+            "new_date": "2026-02-18",
+            "old_elab_date": "2025-10-23",
+            "new_elab_date": "2026-02-18",
+            "old_reinsp_date": "2026-10-23",
+            "new_reinsp_date": "2027-02-18",
+            "date": "2026-05-25 15:06:31",
+            "user": "admin",
+            "product_id": "IFF-QB00122"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:06:31",
+        "event_type": "product_edit",
+        "user": "admin",
+        "details": {
+            "product_code": "IFF-QB00122",
+            "changes": {
+                "lote": "0019275145",
+                "lote_date": "2026-02-18",
+                "lote_reinspection_date": "2027-02-18",
+                "force_history": true,
+                "lote_history": [
+                    {
+                        "old_lote": "0018835974",
+                        "new_lote": "0019275145",
+                        "old_date": "2025-10-23",
+                        "new_date": "2026-02-18",
+                        "old_elab_date": "2025-10-23",
+                        "new_elab_date": "2026-02-18",
+                        "old_reinsp_date": "2026-10-23",
+                        "new_reinsp_date": "2027-02-18",
+                        "date": "2026-05-25 15:06:31",
+                        "user": "admin"
+                    }
+                ],
+                "lotes_info": {
+                    "0018835974": {
+                        "fecha_elaboracion": "2025-10-23",
+                        "fecha_inspeccion": "2026-10-23"
+                    },
+                    "0018622805": {
+                        "fecha_elaboracion": "2025-08-27",
+                        "fecha_inspeccion": "2026-08-27"
+                    },
+                    "0019275145": {
+                        "fecha_elaboracion": "2026-02-18",
+                        "fecha_inspeccion": "2027-02-18"
+                    }
+                }
+            },
+            "source": "control_interno"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:06:58",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "0019401970",
+            "new_lote": "0019514346",
+            "old_date": "2026-03-31",
+            "new_date": "2026-04-27",
+            "old_elab_date": "2026-03-31",
+            "new_elab_date": "2026-04-27",
+            "old_reinsp_date": "2027-03-31",
+            "new_reinsp_date": "2027-04-27",
+            "date": "2026-05-25 15:06:58",
+            "user": "admin",
+            "product_id": "IFF-QB00007"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:06:58",
+        "event_type": "product_edit",
+        "user": "admin",
+        "details": {
+            "product_code": "IFF-QB00007",
+            "changes": {
+                "lote": "0019514346",
+                "lote_date": "2026-04-27",
+                "lote_reinspection_date": "2027-04-27",
+                "force_history": true,
+                "lote_history": [
+                    {
+                        "old_lote": "0019401970",
+                        "new_lote": "0019514346",
+                        "old_date": "2026-03-31",
+                        "new_date": "2026-04-27",
+                        "old_elab_date": "2026-03-31",
+                        "new_elab_date": "2026-04-27",
+                        "old_reinsp_date": "2027-03-31",
+                        "new_reinsp_date": "2027-04-27",
+                        "date": "2026-05-25 15:06:58",
+                        "user": "admin"
+                    },
+                    {
+                        "old_lote": "0018939145",
+                        "new_lote": "0019401970",
+                        "old_date": "2025-11-25",
+                        "new_date": "2026-03-31",
+                        "user": "Almacen1",
+                        "timestamp": "2026-04-23 15:21:42",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "2026-04-16 10:39:16",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "NaT",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0019275116",
+                        "old_date": "",
+                        "new_date": "2026-02-19",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    }
+                ],
+                "lotes_info": {
+                    "0018939145": {
+                        "fecha_elaboracion": "2025-11-25",
+                        "fecha_inspeccion": "2026-11-25"
+                    },
+                    "0019401970": {
+                        "fecha_elaboracion": "2026-03-31",
+                        "fecha_inspeccion": ""
+                    },
+                    "0018500439": {
+                        "fecha_elaboracion": "2025-08-27",
+                        "fecha_inspeccion": "2026-08-27"
+                    },
+                    "0018721458": {
+                        "fecha_elaboracion": "2025-09-30",
+                        "fecha_inspeccion": "2026-09-30"
+                    },
+                    "0019514346": {
+                        "fecha_elaboracion": "2026-04-27",
+                        "fecha_inspeccion": "2027-04-27"
+                    }
+                }
+            },
+            "source": "control_interno"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:09:17",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 8,
+            "items": [
+                "VAR-QB00006",
+                "IFF-QB00012",
+                "IFF-QB00019",
+                "IFF-QB00021",
+                "IFF-QB00074",
+                "IFF-QB00256",
+                "IFF-QB00067",
+                "IFF-QB00198"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:10:48",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "VAR-QB00030",
+                "VAR-QB00070",
+                "KAO-QB00076",
+                "KAO-QB00070"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:17:27",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00138",
+                "IFF-QB00171"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:29:56",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00037"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 15:37:04",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "KAO-QB00076"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:01:20",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "0019495903",
+            "new_lote": "0010042606",
+            "old_date": "2026-03-21",
+            "new_date": "2026-04-10",
+            "old_elab_date": "2026-03-21",
+            "new_elab_date": "2026-04-10",
+            "old_reinsp_date": "2027-03-21",
+            "new_reinsp_date": "2027-04-10",
+            "date": "2026-05-25 16:01:20",
+            "user": "admin",
+            "product_id": "IFF-QB00256"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:01:26",
+        "event_type": "product_edit",
+        "user": "admin",
+        "details": {
+            "product_code": "IFF-QB00256",
+            "changes": {
+                "lote": "0010042606",
+                "lote_date": "2026-04-10",
+                "lote_reinspection_date": "2027-04-10",
+                "force_history": true,
+                "lote_history": [
+                    {
+                        "old_lote": "0019495903",
+                        "new_lote": "0010042606",
+                        "old_date": "2026-03-21",
+                        "new_date": "2026-04-10",
+                        "old_elab_date": "2026-03-21",
+                        "new_elab_date": "2026-04-10",
+                        "old_reinsp_date": "2027-03-21",
+                        "new_reinsp_date": "2027-04-10",
+                        "date": "2026-05-25 16:01:20",
+                        "user": "admin"
+                    },
+                    {
+                        "old_lote": "0010042606",
+                        "new_lote": "0019495903",
+                        "old_date": "2026-04-10",
+                        "new_date": "2026-03-21",
+                        "old_elab_date": "2026-04-10",
+                        "new_elab_date": "2026-03-21",
+                        "old_reinsp_date": "2027-04-10",
+                        "new_reinsp_date": "2027-03-21",
+                        "date": "2026-05-21 11:05:53",
+                        "user": "Almacen1"
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "2026-04-20 14:14:57",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "NaT",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "1900-01-01 00:00:00",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    },
+                    {
+                        "old_lote": "",
+                        "new_lote": "0010042606",
+                        "old_date": "",
+                        "new_date": "2026-04-10",
+                        "user": "Almacen1",
+                        "timestamp": "",
+                        "source": "sql_recovery",
+                        "notes": ""
+                    }
+                ],
+                "lotes_info": {
+                    "17": {
+                        "fecha_elaboracion": "2025-06-02",
+                        "fecha_inspeccion": "2025-06-02"
+                    },
+                    "0010042606": {
+                        "fecha_elaboracion": "2026-04-10",
+                        "fecha_inspeccion": "2027-04-10"
+                    },
+                    "0028102505": {
+                        "fecha_elaboracion": "2025-10-28",
+                        "fecha_inspeccion": "2026-10-28"
+                    },
+                    "0019495903": {
+                        "fecha_elaboracion": "2026-03-21",
+                        "fecha_inspeccion": "2027-03-21"
+                    }
+                }
+            },
+            "source": "control_interno"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:02:29",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00256",
+                "IFF-QB00256"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:05:38",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00005"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:05:58",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00005"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:06:21",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00005"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:06:44",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00005",
+                "IFF-QB00214"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:47:32",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00229"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-25 16:57:23",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00109"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-25 17:02:34",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00067"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-26 08:24:44",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00175",
+                "VAR-QB00175"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:11:47",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm01",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00214",
+                "IFF-QB00068"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:11:55",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "AlmMty",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00100"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:12:14",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm01",
+        "details": {
+            "count": 2,
+            "items": [
+                "KAO-QB00054",
+                "IFF-QB00047"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:14:09",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm01",
+        "details": {
+            "count": 3,
+            "items": [
+                "VAR-QB00100",
+                "VAR-QB00109",
+                "VAR-QB00109"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:14:44",
+        "event_type": "PRINT_JOB_HTML",
+        "user": "AlmMty",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00100"
+            ]
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:15:56",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm01",
+        "details": {
+            "count": 1,
+            "items": [
+                "ASH-QB00017"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:23:19",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 10,
+            "items": [
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070",
+                "VAR-QB00070"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 09:23:28",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm02",
+        "details": {
+            "count": 1,
+            "items": [
+                "PRUEBA-01"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 10:47:41",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 3,
+            "items": [
+                "KAO-QB00049",
+                "IFF-QB00071",
+                "IFF-QB00068"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 10:50:18",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 4,
+            "items": [
+                "VAR-QB00076",
+                "IFF-QB00044",
+                "IFF-QB00013",
+                "IFF-QB00045"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 11:04:38",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 3,
+            "items": [
+                "VAR-QB00109",
+                "VAR-QB00070",
+                "KAO-QB00049"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 11:52:44",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 1,
+            "items": [
+                "ASH-QB00017"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 12:38:16",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00030"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 13:23:31",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00109",
+                "IFF-QB00018"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 13:47:04",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00045",
+                "IFF-QB00002"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 14:36:31",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00001",
+                "VAR-QB00082"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:36:12",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00067",
+                "VAR-QB00177"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:39:15",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00068",
+                "IFF-QB00045"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:50:44",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Alm02",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00109"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:52:58",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00109"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:55:28",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 5,
+            "items": [
+                "IFF-QB00067",
+                "IFF-QB00073",
+                "IFF-QB00044",
+                "IFF-QB00037",
+                "VAR-QB00176"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:55:41",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00011"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 15:57:34",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "VAR-QB00011"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 16:45:11",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00218"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-26 16:50:21",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "Almacen1",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00249"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 10:01:31",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "IFF-QB00008",
+                "IFF-QB00087"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 10:36:11",
+        "event_type": "MERMA_UPDATE",
+        "user": "admin",
+        "details": {
+            "old_lote": "39B130526",
+            "new_lote": "39C131126",
+            "old_date": "2026-02-07",
+            "new_date": "2026-03-22",
+            "old_elab_date": "2026-02-07",
+            "new_elab_date": "2026-03-22",
+            "old_reinsp_date": "2027-02-07",
+            "new_reinsp_date": "2028-03-22",
+            "date": "2026-05-27 10:36:11",
+            "user": "admin",
+            "product_id": "VAR-QB00146"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 10:47:25",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "KAO-QB00061"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 11:25:59",
+        "event_type": "product_edit",
+        "user": "Lab",
+        "details": {
+            "product_code": "VAR-QB00075",
+            "changes": {
+                "Chemical Name": "D-LIMONENO",
+                "CAS Number": "5989-27-5",
+                "Signal Word": "PELIGRO",
+                "Emergencia": "01 800 002 1400",
+                "H-Statements": "H226, H304, H315, H317, H410",
+                "Consejos (Frases P)": "P102, P210, P261, P273, P280, P303+P332+P352, P305+P352, P306+P363, P314, P402+P403+P404+P410, P501",
+                "Exclamación": "X",
+                "Corrosión": "",
+                "Peligro para la salud": "X",
+                "Calavera": "",
+                "Llama": "X",
+                "Ambiente": "X",
+                "Llama sobre círculo": "",
+                "Bomba explotando": "",
+                "Cilindro de gas": ""
+            }
+        }
+    },
+    {
+        "timestamp": "2026-05-27 13:00:10",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 4,
+            "items": [
+                "IFF-QB00073",
+                "IFF-QB00141",
+                "IFF-QB00208",
+                "IFF-QB00167"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 13:41:41",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00073"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 13:48:04",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00123"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 14:04:49",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00070",
+                "VAR-QB00100"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 14:11:25",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 7,
+            "items": [
+                "IFF-QB00023",
+                "IFF-QB00238",
+                "IFF-QB00074",
+                "IFF-QB00209",
+                "PRD-QB00005",
+                "IFF-QB00290",
+                "IFF-QB00005"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 14:27:18",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 1,
+            "items": [
+                "IFF-QB00074"
+            ],
+            "method": "print_agent"
+        }
+    },
+    {
+        "timestamp": "2026-05-27 14:27:48",
+        "event_type": "DIRECT_PRINT_JOB",
+        "user": "admin",
+        "details": {
+            "count": 2,
+            "items": [
+                "VAR-QB00175",
+                "VAR-QB00091"
+            ],
+            "method": "print_agent"
+        }
     }
 ]

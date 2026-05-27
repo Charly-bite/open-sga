@@ -333,7 +333,7 @@ def add_to_queue():
     batch_number = data.get("batch_number", "")  # Get batch number from request
     batch_date = data.get("batch_date", "")  # Get batch date from request
 
-    if batch_date and not batch_date.startswith("00/"):
+    if batch_date and batch_date != "00" and not batch_date.startswith("00/"):
         try:
             try:
                 parsed_bd = datetime.strptime(batch_date[:10], "%Y-%m-%d")
@@ -514,7 +514,7 @@ def update_queue_item(item_id):
     data = request.get_json()
     queue = session.get("print_queue", [])
 
-    # Validate batch_date if updated (skip "00" blank sentinel and "00/" day-less sentinel)
+    # Validate batch_date if updated (skip "00" or "00/..." blank sentinel)
     new_batch_date = data.get("batch_date", "")
     if new_batch_date and new_batch_date != "00" and not new_batch_date.startswith("00/"):
         try:

@@ -163,7 +163,7 @@ def create_app(config_name="default"):
         from flask import flash as _flash
 
         _flash("Por favor inicie sesión para acceder.", "warning")
-        return redirect(url_for("auth.login", next=request.url))
+        return redirect(url_for("auth.login", next=request.path))
 
     # Initialize managers
     app.user_manager = UserManager(app.config["USERS_FILE"])
@@ -251,12 +251,28 @@ def create_app(config_name="default"):
     @login_manager.user_loader
     def load_user(user_id):
         from models import User
+        import logging as _logging
+        _log = _logging.getLogger("user_loader")
+
+        _log.info(f"[USER_LOADER] Called with user_id={user_id!r}")
 
         # Use the SQL-backed UserManager to get user details
         user_data = app.user_manager.get_user(user_id)
         if user_data:
+            _log.info(f"[USER_LOADER] Found user {user_id!r} in DB, is_active={user_data.get('is_active')}")
             return User(user_data)
-        return None  # Register blueprints
+        # ── TEMPORARY BYPASS fallback ──────────────────────────────
+        # The login route allows any username (even unknown ones) to
+        # create a session.  If the user is not in the DB, build a
+        # minimal User so the session is still recognised.
+        _log.warning(f"[USER_LOADER] User {user_id!r} NOT in DB — creating temp bypass user")
+        return User({
+            "username": user_id,
+            "role": "operator",
+            "full_name": user_id,
+            "warehouse": "",
+            "must_change_password": False,
+        })
 
     from routes.auth import auth_bp
     from routes.main import main_bp
@@ -267,6 +283,7 @@ def create_app(config_name="default"):
     from routes.api import api_bp
     from routes.templates import templates_bp
     from routes.control_interno import control_bp
+    from routes.monitor import monitor_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -277,6 +294,7 @@ def create_app(config_name="default"):
     app.register_blueprint(api_bp, url_prefix="/api")
     app.register_blueprint(templates_bp, url_prefix="/templates")
     app.register_blueprint(control_bp, url_prefix="/control")
+    app.register_blueprint(monitor_bp, url_prefix="/api")
 
     # Initialize request logging middleware (structured HTTP access logs)
     from middleware.request_logger import init_request_logger

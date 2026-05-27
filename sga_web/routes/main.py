@@ -15,7 +15,9 @@ def index():
         from flask import redirect, url_for
 
         return redirect(url_for("main.dashboard"))
-    return render_template("index.html")
+    from flask import redirect, url_for
+
+    return redirect(url_for("auth.login"))
 
 
 @main_bp.route("/dashboard")

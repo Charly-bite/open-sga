@@ -38,10 +38,10 @@ class UserManager:
         self.users_file = users_file  # JSON backup path (write-only export)
         self.sql_engine = None
         try:
-            from database_client import get_shared_client
+            from database_client import DatabaseClient
 
-            client = get_shared_client()
-            if client.is_connected():
+            client = DatabaseClient()
+            if client.connect():
                 self.sql_engine = client.get_sql_engine()
         except ImportError:
             pass
@@ -167,10 +167,10 @@ class UserManager:
         # Lazy retry: if SQL engine wasn't available at init, try again now
         if self.sql_engine is None:
             try:
-                from database_client import get_shared_client
+                from database_client import DatabaseClient
 
-                client = get_shared_client()
-                if client.is_connected():
+                client = DatabaseClient()
+                if client.connect():
                     self.sql_engine = client.get_sql_engine()
                     if self.sql_engine:
                         logger.info("UserManager: SQL engine acquired on retry")

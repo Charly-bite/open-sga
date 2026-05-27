@@ -240,10 +240,15 @@ class GHSLabelGenerator:
             insp_date = "N/A"
 
         # Handle "00" sentinel: user wants this date field blank on the label
-        if today_str == "00":
+        # Detect both exact "00" and dates starting with "00/" (day=00 sentinel)
+        def _is_sentinel(d):
+            d = str(d).strip()
+            return d == "00" or d.startswith("00/")
+
+        if _is_sentinel(today_str):
             elab_date = ""
-            insp_date = "" if (not reinsp_override or reinsp_override == "00") else str(reinsp_override)
-        elif reinsp_override == "00":
+            insp_date = "" if (not reinsp_override or _is_sentinel(reinsp_override)) else str(reinsp_override)
+        elif _is_sentinel(reinsp_override):
             insp_date = ""
 
         # Respect explicit date format flag from frontend
@@ -380,6 +385,13 @@ class GHSLabelGenerator:
             "net_weight_barcode": f"{format_w(peso_neto)} KG",
             "gross_weight_barcode": f"{format_w(peso_bruto)} KG",
         }
+
+        # When date values are blank (sentinel), also hide their static labels
+        hidden_fields = set()
+        if not elab_date:
+            hidden_fields.add("elab_date_label")
+        if not insp_date:
+            hidden_fields.add("reinsp_date_label")
 
         def resolve_image_path(el_field: str, src: str) -> Optional[str]:
             base_dir = get_base_dir()
@@ -751,6 +763,10 @@ class GHSLabelGenerator:
         for el in template.get("elements", []):
             el_type = el.get("type", "text")
             field = el.get("field", "")
+
+            # Skip static labels whose corresponding date value is blank (sentinel)
+            if field in hidden_fields:
+                continue
 
             # HACK: Force CAS Number to multiline so it wraps properly if long
             if field == "cas_number" and el_type == "text":
@@ -1720,10 +1736,15 @@ class GHSLabelGenerator:
             insp_date = "N/A"
 
         # Handle "00" sentinel: user wants this date field blank on the label
-        if today_str == "00":
+        # Detect both exact "00" and dates starting with "00/" (day=00 sentinel)
+        def _is_sentinel(d):
+            d = str(d).strip()
+            return d == "00" or d.startswith("00/")
+
+        if _is_sentinel(today_str):
             elab_date = ""
-            insp_date = "" if (not reinsp_override or reinsp_override == "00") else str(reinsp_override)
-        elif reinsp_override == "00":
+            insp_date = "" if (not reinsp_override or _is_sentinel(reinsp_override)) else str(reinsp_override)
+        elif _is_sentinel(reinsp_override):
             insp_date = ""
 
         # ── ROW 1: DATES (label above, value below for each date) ──
@@ -1731,16 +1752,20 @@ class GHSLabelGenerator:
         date_value_size = 11
 
         # Elaboration — label on top line, value on line below
-        c.setFont("Helvetica-Bold", date_label_size)
-        c.drawString(1 * mm, 21 * mm, "F.ELABORACION:")  # Label at Y=21mm
-        c.setFont("Helvetica-Bold", date_value_size)
-        c.drawString(1 * mm, 17.5 * mm, elab_date)  # Value at Y=17.5mm
+        # Only draw if elab_date has a value (sentinel blanks it)
+        if elab_date:
+            c.setFont("Helvetica-Bold", date_label_size)
+            c.drawString(1 * mm, 21 * mm, "F.ELABORACION:")  # Label at Y=21mm
+            c.setFont("Helvetica-Bold", date_value_size)
+            c.drawString(1 * mm, 17.5 * mm, elab_date)  # Value at Y=17.5mm
 
         # Reinspection — label on top line, value on line below
-        c.setFont("Helvetica-Bold", date_label_size)
-        c.drawString(1 * mm, 13 * mm, "F. REINSPECCION:")  # Label at Y=13mm
-        c.setFont("Helvetica-Bold", date_value_size)
-        c.drawString(1 * mm, 9.5 * mm, insp_date)  # Value at Y=9.5mm
+        # Only draw if insp_date has a value (sentinel blanks it)
+        if insp_date:
+            c.setFont("Helvetica-Bold", date_label_size)
+            c.drawString(1 * mm, 13 * mm, "F. REINSPECCION:")  # Label at Y=13mm
+            c.setFont("Helvetica-Bold", date_value_size)
+            c.drawString(1 * mm, 9.5 * mm, insp_date)  # Value at Y=9.5mm
 
         # ── ROW 2: LOTE LABEL ──
         batch_num = product.get("batch_number", "000000")

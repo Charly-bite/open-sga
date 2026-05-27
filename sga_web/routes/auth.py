@@ -1,6 +1,9 @@
 """
 Authentication routes for SGA Web
 """
+import logging
+
+logger = logging.getLogger(__name__)
 
 from flask import (
     Blueprint,
@@ -30,7 +33,6 @@ def _is_safe_url(target):
 
 
 @auth_bp.route("/login", methods=["GET", "POST"])
-@limiter.limit("5 per minute", methods=["POST"])
 def login():
     """User login page — TEMPORARY: password bypass enabled"""
     if current_user.is_authenticated:
@@ -71,15 +73,26 @@ def login():
             return render_template("auth/login.html")
 
         user = User(user_data)
-        login_user(user, remember=remember)
+        login_result = login_user(user, remember=remember)
         session.permanent = True
+
+        logger.info(f"[LOGIN] login_user({user.username}) returned: {login_result}")
+        logger.info(f"[LOGIN] user.is_active={user.is_active}, session keys={list(session.keys())}")
+        logger.info(f"[LOGIN] session._user_id={session.get('_user_id', 'NOT SET')}")
+
+        if not login_result:
+            logger.error(f"[LOGIN] login_user FAILED for {user.username}!")
+            flash("Error al iniciar sesión. Intente de nuevo.", "error")
+            return render_template("auth/login.html")
 
         flash(f"Bienvenido, {user.full_name}", "success")
 
         next_page = request.args.get("next")
         if next_page and not _is_safe_url(next_page):
             next_page = None
-        return redirect(next_page or url_for("main.dashboard"))
+        target = next_page or url_for("main.dashboard")
+        logger.info(f"[LOGIN] Redirecting to: {target}")
+        return redirect(target)
 
     return render_template("auth/login.html")
 
