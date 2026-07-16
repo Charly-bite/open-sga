@@ -711,6 +711,7 @@ class TaraWeightManager:
                         suggestions.append(
                             {
                                 **container,
+                                "tara_kg": float(override_tara),
                                 "is_default": True,
                                 "usage_pct": 100.0,
                                 "source": "tara_override",
@@ -737,6 +738,7 @@ class TaraWeightManager:
                     suggestions.append(
                         {
                             **container,
+                            "tara_kg": tara_kg,
                             "is_default": len(suggestions) == 0,
                             "usage_pct": 100.0,
                             "source": "product_history",
@@ -765,6 +767,7 @@ class TaraWeightManager:
                         suggestions.append(
                             {
                                 **container,
+                                "tara_kg": type_tara,
                                 "is_default": len(suggestions) == 0,
                                 "usage_pct": 90.0,
                                 "source": "type_table",
@@ -791,6 +794,7 @@ class TaraWeightManager:
                     suggestions.append(
                         {
                             **container,
+                            "tara_kg": tara_kg,
                             "is_default": is_default and len(suggestions) == 0,
                             "usage_pct": usage_pct,
                             "source": "statistical",
@@ -800,7 +804,7 @@ class TaraWeightManager:
 
         elif not suggestions:
 
-            # ── Priority 4: Interpolate from nearest known weight ─────────────
+            # ── Priority 4: Interpolate from nearest weight ─────────────
 
             suggestions = self._interpolate_suggestions(peso_neto)
 
@@ -972,6 +976,7 @@ class TaraWeightManager:
                 suggestions.append(
                     {
                         **container,
+                        "tara_kg": tara_kg,
                         "is_default": is_default,
                         "usage_pct": usage_pct,
                         "source": "interpolated",

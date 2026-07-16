@@ -28,7 +28,7 @@ class HistoryManager:
 
         self._ensure_file_exists()
         self._ensure_db_table_exists()
-        self._prune()
+        # self._prune()  # Disabled: Causes SQL Server deadlocks/hangs on startup with large tables
 
     def _ensure_db_table_exists(self):
         """Creates the history_logs table if it does not exist."""
@@ -216,7 +216,7 @@ class HistoryManager:
                 # parameterizing TOP without parenthesis. limit is always an int.
                 query = text(f"""
                     SELECT TOP {int(limit)} id, timestamp, event_type, username, details
-                    FROM history_logs
+                    FROM history_logs WITH (NOLOCK)
                     {where_clause}
                     ORDER BY id DESC
                 """)

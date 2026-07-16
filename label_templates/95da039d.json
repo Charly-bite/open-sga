@@ -1,6 +1,6 @@
 {
   "id": "95da039d",
-  "name": "Almacen2 ",
+  "name": "Almacen2_mes/año",
   "width_mm": 200,
   "height_mm": 150,
   "rotation": 270,
@@ -316,8 +316,8 @@
       "src": "",
       "type": "pictogram_group_locked",
       "width_mm": 98.5,
-      "x_mm": 1,
-      "y_mm": 26.5
+      "x_mm": 2,
+      "y_mm": 26
     },
     {
       "alignment": "left",
@@ -393,6 +393,6 @@
       "y_mm": 101.5
     }
   ],
-  "updated_at": "2026-05-07T10:12:30.491382",
+  "updated_at": "2026-05-28T16:56:49.180156",
   "created_at": "2026-05-07T10:07:38.935140"
 }

@@ -19,8 +19,24 @@ Logs are written to:
 
 import os
 import sys
+import io
 import time
 import json
+
+# Fix Windows encoding FIRST (before any logging or print)
+if sys.platform == "win32":
+    os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+    try:
+        if hasattr(sys.stdout, "buffer"):
+            sys.stdout = io.TextIOWrapper(
+                sys.stdout.buffer, encoding="utf-8", errors="replace"
+            )
+        if hasattr(sys.stderr, "buffer"):
+            sys.stderr = io.TextIOWrapper(
+                sys.stderr.buffer, encoding="utf-8", errors="replace"
+            )
+    except Exception:
+        pass
 import threading
 import socket
 import logging
@@ -248,7 +264,7 @@ class WebServerWatchdog:
                 )
 
             # Give it a moment to bind the port
-            for i in range(10):
+            for i in range(30):
                 time.sleep(2)
                 if self.is_up():
                     logger.info(
@@ -256,9 +272,9 @@ class WebServerWatchdog:
                         f"en {self.host}:{self.port}"
                     )
                     return True
-                logger.debug(f"  Esperando que el servidor inicie... ({i+1}/10)")
+                logger.debug(f"  Esperando que el servidor inicie... ({i+1}/30)")
 
-            logger.warning("⚠️ El servidor inicio pero aun no responde en el puerto.")
+            logger.warning("[WARNING] El servidor inicio pero aun no responde en el puerto.")
             return False
 
         except Exception as e:
@@ -431,7 +447,7 @@ class Watchdog:
             s["status"] = "down"
             s["last_fail"] = datetime.now().isoformat()
             logger.warning(
-                f"⚠️  SMB no disponible (fallo #{self.smb.consecutive_failures}): "
+                f"[WARNING]  SMB no disponible (fallo #{self.smb.consecutive_failures}): "
                 f"{self.smb.share_path}"
             )
 
@@ -469,7 +485,7 @@ class Watchdog:
             w["status"] = "down"
             w["last_fail"] = datetime.now().isoformat()
             logger.warning(
-                f"⚠️  Servidor web no responde (fallo #{self.web.consecutive_failures}/"
+                f"[WARNING]  Servidor web no responde (fallo #{self.web.consecutive_failures}/"
                 f"{self.web.threshold}) en {self.web.host}:{self.web.port}"
             )
 

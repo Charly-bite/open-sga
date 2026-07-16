@@ -24,38 +24,14 @@ def index():
 @login_required
 def dashboard():
     """Main dashboard with quick stats"""
-    # Get quick stats
-    smart_label = current_app.smart_label
-    order_mgr = current_app.order_status_mgr
-
-    # Determine database connection status
-    db_connected = (
-        smart_label.df_products is not None
-        or getattr(smart_label, "sql_engine", None) is not None
-    )
-    # Use SmartLabelManager connection_mode for accurate real-time state
-    app_db_source = current_app.config.get("DB_SOURCE", "local_default")
-    db_source = getattr(smart_label, "connection_mode", app_db_source)
-    if not db_source:
-        db_source = app_db_source
-
-    # Map connection mode to Spanish labels
-    db_mode_labels = {
-        "server": "Red (Servidor)",
-        "configured": "Red (Servidor)",
-        "sql": "SQL Server",
-        "local_fallback": "Local (Fallback)",
-        "local_default": "Local",
-        "network": "Red (Servidor)",
-        "local": "Local",
-    }
-
-    db_connection_text = db_mode_labels.get(db_source, "Local (Fallback)")
-
-    # Fetch history early so we can use it for stats
+    # Fetch history for stats and activity table
     all_history = current_app.history_mgr.get_history()
 
-    printed_labels_count = sum(
+    # Compute "Etiquetas Impresas Hoy" — only today's print events
+    from datetime import datetime
+
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    printed_labels_today = sum(
         (
             h.get("details", {}).get("count", 0)
             if isinstance(h.get("details"), dict)
@@ -63,44 +39,13 @@ def dashboard():
         )
         for h in all_history
         if h.get("event_type", h.get("type"))
-        in ["PRINT_JOB", "PRINT_JOB_HTML", "LABEL_GENERATION"]
+        in ["PRINT_JOB", "PRINT_JOB_HTML", "DIRECT_PRINT_JOB", "LABEL_GENERATION"]
+        and h.get("timestamp", "").startswith(today_str)
     )
 
-    stats = {
-        "total_products": (
-            smart_label.count_all_products()
-            if hasattr(smart_label, "count_all_products")
-            else (
-                len(smart_label.df_products)
-                if smart_label.df_products is not None
-                else 0
-            )
-        ),
-        "pending_orders": len(
-            [o for o in order_mgr.orders.values() if o.get("status") == "Pendiente"]
-        ),
-        "ready_orders": len(
-            [
-                o
-                for o in order_mgr.orders.values()
-                if o.get("status") == "Recibido por almacen"
-            ]
-        ),
-        "total_orders": len(order_mgr.orders),
-        "printed_labels": printed_labels_count,
-        "sap_connected": current_app.sap_connector is not None
-        and getattr(current_app.sap_connector, "connected", False),
-        "db_connected": db_connected,
-        "db_mode": (
-            "SQL Server"
-            if getattr(smart_label, "sql_engine", None) is not None
-            else db_connection_text
-        ),
-    }
+    stats = {"printed_labels_today": printed_labels_today}
 
     # Get recent history for the selected or current day with enhanced formatting
-    from datetime import datetime
-
     selected_date = request.args.get("date", datetime.now().strftime("%Y-%m-%d"))
     history = [
         h for h in all_history if h.get("timestamp", "").startswith(selected_date)
@@ -110,6 +55,10 @@ def dashboard():
     # Enhance history entries with readable event types and details
     event_type_mapping = {
         "PRINT_JOB": "Impresión",
+        "PRINT_JOB_HTML": "Impresión HTML",
+        "DIRECT_PRINT_JOB": "Impresión Directa",
+        "PRINT_DIRECT": "Impresión Directa",
+        "PRINT_ORDER": "Impresión Pedido",
         "SAP_IMPORT": "Importación SAP",
         "LABEL_GENERATION": "Etiqueta Generada",
         "PRODUCT_ADD": "Producto Agregado",
@@ -117,6 +66,7 @@ def dashboard():
         "ORDER_UPDATE": "Pedido Actualizado",
         "LOGIN": "Inicio de Sesión",
         "LOGOUT": "Cierre de Sesión",
+        "MERMA_UPDATE": "Merma Update",
     }
 
     for entry in history:

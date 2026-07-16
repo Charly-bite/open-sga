@@ -7,7 +7,7 @@ for process in c.Win32_Process():
     if (
         process.CommandLine
         and "sga_web" in process.CommandLine
-        and "app.py" in process.CommandLine
+        and ("app.py" in process.CommandLine or "run_production.py" in process.CommandLine)
     ):
         try:
             print(f"Killing {process.ProcessId}")

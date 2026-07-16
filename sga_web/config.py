@@ -127,6 +127,7 @@ class Config:
 
     # Session configuration
     PERMANENT_SESSION_LIFETIME = timedelta(hours=8)
+    SESSION_COOKIE_NAME = "sga_session"  # Prevent collision with SAO on same IP
     SESSION_COOKIE_SECURE = False  # Set True in production with HTTPS
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = "Lax"  # CSRF mitigation
@@ -154,6 +155,10 @@ class Config:
     SAP_PORT = int(os.environ.get("SAP_PORT", 30015))
     SAP_SCHEMA = os.environ.get("SAP_SCHEMA", "SBO_QUIMICABOSS")
 
+    # Open OMS Webhook
+    OPEN_OMS_HOST = os.environ.get("OPEN_OMS_HOST", "")
+    OPEN_OMS_API_KEY = os.environ.get("OPEN_OMS_API_KEY", "")
+
     # Pagination
     ITEMS_PER_PAGE = 25
 
@@ -170,7 +175,7 @@ class ProductionConfig(Config):
 
     DEBUG = False
     TESTING = False
-    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = False
 
 
 class TestingConfig(Config):

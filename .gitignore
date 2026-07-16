@@ -48,3 +48,13 @@ sga_sql_config.json
 db_client_config.json
 shared_config.json
 
+# Classification databases and backups
+*product_classifications.json*
+sga_web/core/webhook_events.db
+sga_web/core/webhook_queue.py.bak
+*.bak
+*.local_backup
+*.pre_cleanup_backup
+*.stale_fix.bak
+*.phase2.bak
+*.phase3.bak

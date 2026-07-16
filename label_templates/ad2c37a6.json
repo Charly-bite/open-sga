@@ -1,6 +1,6 @@
 {
   "id": "ad2c37a6",
-  "name": "Almacen2(DIA/MES/AÑO)",
+  "name": "Almacen2F_CONSUMO",
   "width_mm": 200,
   "height_mm": 150,
   "rotation": 270,
@@ -115,7 +115,7 @@
       "height_mm": 7,
       "type": "static",
       "width_mm": 40,
-      "x_mm": 4.5,
+      "x_mm": 2,
       "y_mm": 124.5
     },
     {
@@ -126,21 +126,21 @@
       "font_weight": "bold",
       "type": "text",
       "width_mm": 45,
-      "x_mm": 45,
+      "x_mm": 54,
       "y_mm": 124
     },
     {
       "alignment": "left",
       "auto_fit": true,
       "color": "#000000",
-      "custom_text": "F. REINSPECCIÓN:",
+      "custom_text": "F. CONSUMO PREFERENTE:",
       "field": "reinsp_date_label",
       "font_size": 15,
       "font_weight": "bold",
       "height_mm": 7,
       "type": "static",
-      "width_mm": 40,
-      "x_mm": 4.5,
+      "width_mm": 52,
+      "x_mm": 2,
       "y_mm": 132
     },
     {
@@ -152,7 +152,7 @@
       "font_weight": "bold",
       "type": "text",
       "width_mm": 45,
-      "x_mm": 45,
+      "x_mm": 54,
       "y_mm": 131.5
     },
     {
@@ -165,7 +165,7 @@
       "height_mm": 7.3,
       "type": "static",
       "width_mm": 16,
-      "x_mm": 5,
+      "x_mm": 2,
       "y_mm": 117.5
     },
     {
@@ -178,7 +178,7 @@
       "height_mm": 7,
       "type": "text",
       "width_mm": 77.8,
-      "x_mm": 21.5,
+      "x_mm": 18.5,
       "y_mm": 117.5
     },
     {
@@ -194,8 +194,8 @@
       "show_text": false,
       "type": "barcode",
       "width_mm": 72,
-      "x_mm": 95,
-      "y_mm": 132
+      "x_mm": 100,
+      "y_mm": 132.5
     },
     {
       "alignment": "left",
@@ -322,7 +322,7 @@
     {
       "alignment": "left",
       "color": "#000000",
-      "custom_text": "SGAv1.2.4",
+      "custom_text": "SGAv2.0.1",
       "field": "_custom_",
       "font_size": 9,
       "font_weight": "bold",
@@ -393,6 +393,6 @@
       "y_mm": 101.5
     }
   ],
-  "updated_at": "2026-05-22T08:57:30.616290",
+  "updated_at": "2026-05-28T16:59:38.712931",
   "created_at": "2026-02-16T10:31:46.274756"
 }

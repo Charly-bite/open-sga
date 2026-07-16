@@ -232,22 +232,55 @@ def _normalize_iso_date(date_value: str) -> str:
     return raw
 
 
+def _format_date_for_ui(d: str) -> str:
+    """Convert YYYY-MM-DD back to DD/MM/YYYY for text inputs in UI."""
+    if not d:
+        return ""
+    d = str(d).strip()
+    if len(d) >= 10 and d[4] == "-" and d[7] == "-":
+        try:
+            dt = datetime.strptime(d[:10], "%Y-%m-%d")
+            return dt.strftime("%d/%m/%Y")
+        except ValueError:
+            pass
+    return d
+
+
 def _default_reinspection_date(elab_date: str) -> str:
     """Default reinsp date = elaboration date + 1 year (leap-year safe)."""
     normalized = _normalize_iso_date(elab_date)
     if not normalized:
         return ""
 
+    had_00_day = False
+    parse_bd = normalized
+    if parse_bd.startswith("00/"):
+        parse_bd = "01/" + parse_bd[3:]
+        had_00_day = True
+    elif "/" in parse_bd and len(parse_bd.split("/")) == 2:
+        parts = parse_bd.split("/")
+        parse_bd = f"01/{parts[0]}/{parts[1]}"
+        had_00_day = True
+
     try:
-        dt = datetime.strptime(normalized, "%Y-%m-%d")
+        dt = datetime.strptime(parse_bd, "%Y-%m-%d")
     except ValueError:
-        return ""
+        try:
+            dt = datetime.strptime(parse_bd, "%d/%m/%Y")
+        except ValueError:
+            return ""
 
     try:
         next_year = dt.replace(year=dt.year + 1)
     except ValueError:
         # Handles Feb 29 -> Feb 28 next year
         next_year = dt.replace(year=dt.year + 1, day=28)
+
+    if had_00_day:
+        if "/" in normalized and len(normalized.split("/")) == 2:
+            return next_year.strftime("%m/%Y")
+        else:
+            return next_year.strftime("00/%m/%Y")
 
     return next_year.strftime("%Y-%m-%d")
 
@@ -328,8 +361,8 @@ def api_products():
 
     for p in products:
         elab_date, reinsp_date = _resolve_lote_dates(p)
-        p["lote_date"] = elab_date
-        p["lote_reinspection_date"] = reinsp_date
+        p["lote_date"] = _format_date_for_ui(elab_date)
+        p["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
 
         pid = p.get("product_id", "")
         history = tara_mgr.get_product_known_tara(pid)
@@ -415,9 +448,28 @@ def api_product_detail(product_id):
     except Exception as exc:
         logger.warning(f"Lote recovery in detail failed for {product_id}: {exc}")
 
+    # Format history dates for UI
+    try:
+        lote_history = classification.get("lote_history", [])
+        if isinstance(lote_history, list) and lote_history:
+            formatted_history = []
+            for entry in lote_history:
+                if isinstance(entry, dict):
+                    fe = dict(entry)
+                    fe["old_date"] = _format_date_for_ui(fe.get("old_date", ""))
+                    fe["new_date"] = _format_date_for_ui(fe.get("new_date", ""))
+                    fe["old_elab_date"] = _format_date_for_ui(fe.get("old_elab_date", ""))
+                    fe["new_elab_date"] = _format_date_for_ui(fe.get("new_elab_date", ""))
+                    fe["old_reinsp_date"] = _format_date_for_ui(fe.get("old_reinsp_date", ""))
+                    fe["new_reinsp_date"] = _format_date_for_ui(fe.get("new_reinsp_date", ""))
+                    formatted_history.append(fe)
+            classification["lote_history"] = formatted_history
+    except Exception as exc:
+        logger.warning(f"Lote history formatting failed for {product_id}: {exc}")
+
     elab_date, reinsp_date = _resolve_lote_dates(classification)
-    classification["lote_date"] = elab_date
-    classification["lote_reinspection_date"] = reinsp_date
+    classification["lote_date"] = _format_date_for_ui(elab_date)
+    classification["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
 
     classification["requires_attention"] = False
     if reinsp_date:
@@ -923,6 +975,15 @@ def api_lote_history():
             enriched_entry = dict(entry)
             enriched_entry["product_id"] = pid
             enriched_entry["chemical_name"] = data.get("chemical_name", "")
+            
+            # Format dates for UI
+            enriched_entry["old_date"] = _format_date_for_ui(enriched_entry.get("old_date", ""))
+            enriched_entry["new_date"] = _format_date_for_ui(enriched_entry.get("new_date", ""))
+            enriched_entry["old_elab_date"] = _format_date_for_ui(enriched_entry.get("old_elab_date", ""))
+            enriched_entry["new_elab_date"] = _format_date_for_ui(enriched_entry.get("new_elab_date", ""))
+            enriched_entry["old_reinsp_date"] = _format_date_for_ui(enriched_entry.get("old_reinsp_date", ""))
+            enriched_entry["new_reinsp_date"] = _format_date_for_ui(enriched_entry.get("new_reinsp_date", ""))
+            
             history_list.append(enriched_entry)
 
     # Filter by month if provided (YYYY-MM)

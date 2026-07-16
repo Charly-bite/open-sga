@@ -40,6 +40,27 @@ def _save_error_payload(smart_label, default_message):
 
 
 from order_status_manager import OrderStatus
+from core.oms_webhook import notify_label_printed
+from core.webhook_queue import webhook_queue
+
+
+def _notify_qb_sao_label_printed(order_id, username, items=None, event_type="DIRECT_PRINT_JOB"):
+    """
+    Notify QB-SAO (Open-OMS) that labels were printed for a given order.
+    Enqueues the event into the local SQLite webhook queue. A background
+    worker will continuously attempt to deliver this payload to QB-SAO
+    until it succeeds, ensuring no events are lost.
+    """
+    if not order_id:
+        return
+    payload = {
+        "order_id": str(order_id),
+        "station": str(username),
+        "items": items or [],
+        "event_type": event_type,
+    }
+
+    webhook_queue.enqueue_event(payload)
 
 
 def _auto_update_order_status(order_id, username):
@@ -241,6 +262,20 @@ def _determine_page_size(items, template):
     return 150, 100
 
 
+def _normalize_date(d):
+    """Convert YYYY-MM-DD to DD/MM/YYYY if needed, and strip whitespace."""
+    if d is None:
+        return ""
+    d = str(d).strip()
+    if len(d) >= 10 and d[4] == "-" and d[7] == "-":
+        try:
+            dt = datetime.strptime(d[:10], "%Y-%m-%d")
+            return dt.strftime("%d/%m/%Y")
+        except ValueError:
+            pass
+    return d
+
+
 @labels_bp.route("/")
 @login_required
 def index():
@@ -331,7 +366,9 @@ def add_to_queue():
     quantity = data.get("quantity", 1)
     peso_tara = data.get("peso_tara", 0)  # Get tare weight from request
     batch_number = data.get("batch_number", "")  # Get batch number from request
-    batch_date = data.get("batch_date", "")  # Get batch date from request
+    if batch_number:
+        batch_number = str(batch_number).strip()
+    batch_date = _normalize_date(data.get("batch_date", ""))
 
     if batch_date and batch_date != "00" and not batch_date.startswith("00/"):
         try:
@@ -351,9 +388,7 @@ def add_to_queue():
         except ValueError:
             pass
 
-    reinspection_date = data.get(
-        "reinspection_date", ""
-    )  # Get reinspection date from request
+    reinspection_date = _normalize_date(data.get("reinspection_date", ""))
     copies = data.get("copies", 1)  # Number of copies to print
     warehouse = data.get("warehouse", "")  # Get warehouse from request
 
@@ -399,18 +434,7 @@ def add_to_queue():
     if not reinspection_date and db_vencimiento:
         reinspection_date = db_vencimiento
 
-    # Normalize dates to DD/MM/YYYY for consistent display in text inputs
-    def _normalize_date(d):
-        """Convert YYYY-MM-DD to DD/MM/YYYY if needed."""
-        d = str(d).strip()
-        if len(d) >= 10 and d[4] == "-" and d[7] == "-":
-            try:
-                dt = datetime.strptime(d[:10], "%Y-%m-%d")
-                return dt.strftime("%d/%m/%Y")
-            except ValueError:
-                pass
-        return d
-
+    # Normalize resolved dates if they were retrieved from the DB
     if batch_date:
         batch_date = _normalize_date(batch_date)
     if reinspection_date:
@@ -435,11 +459,15 @@ def add_to_queue():
     # Auto-calculate reinspection date if not provided (batch_date + 1 year)
     if not reinspection_date and batch_date:
         try:
-            # Handle "00/" sentinel: swap to "01/" for parsing, preserve flag
+            # Handle "00/" sentinel or native "MM/YYYY": swap to "01/" for parsing, preserve flag
             parse_bd = batch_date
             had_00_day = False
             if parse_bd.startswith("00/"):
                 parse_bd = "01/" + parse_bd[3:]
+                had_00_day = True
+            elif "/" in parse_bd and len(parse_bd.split("/")) == 2:
+                parts = parse_bd.split("/")
+                parse_bd = f"01/{parts[0]}/{parts[1]}"
                 had_00_day = True
 
             try:
@@ -514,8 +542,15 @@ def update_queue_item(item_id):
     data = request.get_json()
     queue = session.get("print_queue", [])
 
+    # Extract, strip and normalize updated fields
+    new_batch_number = data.get("batch_number", "")
+    if new_batch_number is not None:
+        new_batch_number = str(new_batch_number).strip()
+
+    new_batch_date = _normalize_date(data.get("batch_date", ""))
+    new_reinspection_date = _normalize_date(data.get("reinspection_date", ""))
+
     # Validate batch_date if updated (skip "00" or "00/..." blank sentinel)
-    new_batch_date = data.get("batch_date", "")
     if new_batch_date and new_batch_date != "00" and not new_batch_date.startswith("00/"):
         try:
             try:
@@ -536,13 +571,9 @@ def update_queue_item(item_id):
 
     for item in queue:
         if item.get("id") == item_id:
-            item["batch_number"] = data.get(
-                "batch_number", item.get("batch_number", "")
-            )
-            item["batch_date"] = data.get("batch_date", item.get("batch_date", ""))
-            item["reinspection_date"] = data.get(
-                "reinspection_date", item.get("reinspection_date", "")
-            )
+            item["batch_number"] = new_batch_number if new_batch_number is not None else item.get("batch_number", "")
+            item["batch_date"] = new_batch_date
+            item["reinspection_date"] = new_reinspection_date
             item["copies"] = max(1, int(data.get("copies", item.get("copies", 1))))
             item["quantity"] = data.get("quantity", item.get("quantity", 1))
             item["peso_tara"] = data.get("peso_tara", item.get("peso_tara", 0))
@@ -614,6 +645,12 @@ def generate_labels():
         # Use cached generator (loaded once at startup)
         generator = current_app.label_generator
         template = _load_template(template_id)
+        if template:
+            template_name = str(template.get("name", "")).lower()
+            if "dia/mes/a" in template_name or "día/mes/a" in template_name:
+                use_m_y_format = False
+            elif "mes/a" in template_name:
+                use_m_y_format = True
         generated_files = []  # Temp files for individual labels
 
         for item in items_to_generate:
@@ -638,7 +675,7 @@ def generate_labels():
         output_dir = current_app.config["GENERATED_LABELS_PATH"]
         from datetime import datetime
 
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         final_pdf_path = os.path.join(
             output_dir, f"etiquetas_{timestamp}_{len(generated_files)}pcs.pdf"
         )
@@ -671,6 +708,7 @@ def generate_labels():
             details={
                 "count": len(items_to_generate),
                 "items": [i["code"] for i in items_to_generate],
+                "order": data.get("order_id"),
             },
         )
 
@@ -681,6 +719,23 @@ def generate_labels():
 
         # Auto-update order status to "En Proceso" when labels are printed
         _auto_update_order_status(data.get("order_id"), current_user.username)
+
+        # Notify Open OMS that labels were printed
+        notify_label_printed(
+            current_app._get_current_object(),
+            order_id=data.get("order_id"),
+            station=current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="PRINT_JOB",
+        )
+
+        # Enqueue persistent webhook notification to QB-SAO
+        _notify_qb_sao_label_printed(
+            data.get("order_id"),
+            current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="PRINT_JOB",
+        )
 
         # Return the merged PDF to the client browser for client-side printing
         # This allows each client to print on their own local printer
@@ -723,6 +778,12 @@ def generate_print_page():
     try:
         generator = current_app.label_generator
         template = _load_template(template_id)
+        if template:
+            template_name = str(template.get("name", "")).lower()
+            if "dia/mes/a" in template_name or "día/mes/a" in template_name:
+                use_m_y_format = False
+            elif "mes/a" in template_name:
+                use_m_y_format = True
         page_w_mm, page_h_mm = _determine_page_size(items_to_generate, template)
 
         poppler_path = _get_poppler_path()
@@ -795,6 +856,7 @@ def generate_print_page():
             details={
                 "count": len(items_to_generate),
                 "items": [i["code"] for i in items_to_generate],
+                "order": data.get("order_id"),
             },
         )
 
@@ -804,6 +866,23 @@ def generate_print_page():
 
         # Auto-update order status to "En Proceso" when labels are printed
         _auto_update_order_status(data.get("order_id"), current_user.username)
+
+        # Notify Open OMS that labels were printed
+        notify_label_printed(
+            current_app._get_current_object(),
+            order_id=data.get("order_id"),
+            station=current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="PRINT_JOB_HTML",
+        )
+
+        # Enqueue persistent webhook notification to QB-SAO
+        _notify_qb_sao_label_printed(
+            data.get("order_id"),
+            current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="PRINT_JOB_HTML",
+        )
 
         return render_template(
             "labels/print.html",
@@ -848,6 +927,12 @@ def generate_images_api():
     try:
         generator = current_app.label_generator
         template = _load_template(template_id)
+        if template:
+            template_name = str(template.get("name", "")).lower()
+            if "dia/mes/a" in template_name or "día/mes/a" in template_name:
+                use_m_y_format = False
+            elif "mes/a" in template_name:
+                use_m_y_format = True
         page_w_mm, page_h_mm = _determine_page_size(items_to_generate, template)
 
         poppler_path = _get_poppler_path()
@@ -926,6 +1011,7 @@ def generate_images_api():
                 "count": len(items_to_generate),
                 "items": [i["code"] for i in items_to_generate],
                 "method": "print_agent",
+                "order": data.get("order_id"),
             },
         )
 
@@ -937,6 +1023,23 @@ def generate_images_api():
         # Auto-update order status to "En Proceso" when labels are printed
         order_status_updated = _auto_update_order_status(
             data.get("order_id"), current_user.username
+        )
+
+        # Notify Open OMS that labels were printed
+        notify_label_printed(
+            current_app._get_current_object(),
+            order_id=data.get("order_id"),
+            station=current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="DIRECT_PRINT_JOB",
+        )
+
+        # Enqueue persistent webhook notification to QB-SAO
+        _notify_qb_sao_label_printed(
+            data.get("order_id"),
+            current_user.username,
+            items=[i["code"] for i in items_to_generate],
+            event_type="DIRECT_PRINT_JOB",
         )
 
         # Determine final page dimensions (account for rotation)

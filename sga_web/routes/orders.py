@@ -125,14 +125,20 @@ def update_status(order_id):
     STATUS_ALIASES = {
         "Facturado": "Facturacion",
         "Facturación": "Facturacion",
-        "Listo para Envío": "Recibido por almacen",
-        "Listo para Envio": "Recibido por almacen",
-        "Entregado a almacen": "Recibido por almacen",
+        # Old READY aliases -> new READY value
+        "Listo para Envío": "Relacion de envio",
+        "Listo para Envio": "Relacion de envio",
+        "Entregado a almacen": "Relacion de envio",
+        "Recibido por almacen": "Relacion de envio",
+        # Old PICKING alias -> new PICKING value
+        "Preparando": "Entregado",
+        # Old SHIPPED aliases -> new SHIPPED value
         "Enviado": "Enviado al cliente",
-        # Reverse mappings (old enum values → new enum values)
-        "Recibido por almacen": "Recibido por almacen",
+        "Recibido por cliente": "Enviado al cliente",
+        # Reverse mappings (current enum values passthrough)
+        "Relacion de envio": "Relacion de envio",
+        "Entregado": "Entregado",
         "Enviado al cliente": "Enviado al cliente",
-        "Recibido por cliente": "Recibido por cliente",
     }
     normalized = STATUS_ALIASES.get(new_status, new_status)
 
@@ -323,7 +329,7 @@ def load_recent_from_sap():
                         OrderStatus.INVOICING.value,
                         OrderStatus.READY.value,
                         OrderStatus.SHIPPED.value,
-                        OrderStatus.RECEIVED.value,
+                        OrderStatus.SHIPPED.value,
                     ]:
                         new_local_status = OrderStatus.INVOICING.value
                         order_mgr.orders[order_id]["status"] = new_local_status

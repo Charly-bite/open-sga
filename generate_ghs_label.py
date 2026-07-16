@@ -215,7 +215,7 @@ class GHSLabelGenerator:
                 else:
                     rd = _dt.datetime.strptime(_rv_parse, "%d/%m/%Y")
                 if _rv_had_00:
-                    return rd.strftime("00/%m/%Y")
+                    return rd.strftime("%m/%Y")
                 return rd.strftime("%d/%m/%Y")
             except Exception:
                 return str(reinsp_val)
@@ -246,7 +246,7 @@ class GHSLabelGenerator:
 
             if dt:
                 if had_00_day:
-                    elab_date = dt.strftime("00/%m/%Y")
+                    elab_date = dt.strftime("%m/%Y")
                 else:
                     elab_date = dt.strftime("%d/%m/%Y")
                 # Use explicit reinspection_date if provided, otherwise auto-calc +1 year
@@ -258,7 +258,7 @@ class GHSLabelGenerator:
                     except ValueError:
                         insp_dt = dt.replace(year=dt.year + 1, day=28)
                     if had_00_day:
-                        insp_date = insp_dt.strftime("00/%m/%Y")
+                        insp_date = insp_dt.strftime("%m/%Y")
                     else:
                         insp_date = insp_dt.strftime("%d/%m/%Y")
             else:

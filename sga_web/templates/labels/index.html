@@ -162,7 +162,7 @@
             </h3>
 
             <!-- Center: Template Selector (admin only) -->
-            {% if current_user.is_admin() %}
+            {% if current_user.is_admin() or current_user.username == 'Alm02' %}
             <div class="flex items-center gap-2 flex-1 justify-center">
                 <label class="text-sm font-medium text-slate-600 whitespace-nowrap">Plantilla:</label>
                 <div class="relative w-52">
@@ -241,6 +241,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
+                </div>
+                <!-- Month/Year Format Toggle -->
+                <div x-show="queue.length > 0" class="flex items-center gap-1.5 px-2 py-1 bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 transition-colors cursor-pointer select-none">
+                    <input type="checkbox" id="useMYFormatToggle" x-model="useMYFormat" @change="localStorage.setItem('ghs_use_my_format', useMYFormat)"
+                        class="w-3.5 h-3.5 text-blue-600 border-slate-300 rounded focus:ring-blue-500 cursor-pointer">
+                    <label for="useMYFormatToggle" class="text-xs font-medium text-slate-600 cursor-pointer whitespace-nowrap">
+                        Solo Mes/Año
+                    </label>
                 </div>
                 <!-- Direct Print Agent (prints selected queue items) -->
                 <div class="flex items-center gap-2">
@@ -1182,7 +1190,9 @@
             selectedTemplate: localStorage.getItem('ghs_selected_template') || 'default',
             templates: [],
             _templatesLoaded: false,
-{% if current_user.is_admin() %}
+            userWarehouse: '{{ user_warehouse|default("", true) }}',
+            username: '{{ current_user.username }}',
+{% if current_user.is_admin() or current_user.username == 'Alm02' %}
         isAdmin: true,
             {% else %}
     isAdmin: false,
@@ -1863,26 +1873,26 @@
             return;
         }
         
-        // Auto-insert '/' after DD (position 2) and MM (position 5)
+        // Auto-insert '/' after DD (position 2)
         if (val.length === 2 && !val.includes('/')) {
             val += '/';
-        } else if (val.length === 5 && val[2] === '/' && val.indexOf('/', 3) === -1) {
-            val += '/';
         }
+        // (Removed second slash auto-insertion to allow easy typing of MM/YYYY)
         
         // Cap at 10 characters (DD/MM/YYYY)
         if (val.length > 10) val = val.substring(0, 10);
         
-        input.value = val;
-        input.dispatchEvent(new Event('input', { bubbles: true }));
+        if (input.value !== val) {
+            input.value = val;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
     },
 
     // Auto-calculate reinspection date when batch_date changes (+1 year)
     // Special sentinel: "00" or "00/..." means "leave blank on the printed label"
     onBatchDateChange(item) {
         if (item.batch_date) {
-            // "00" sentinel or "00/..." (day=00) → propagate to reinspection as well
-            if (item.batch_date === '00' || item.batch_date.startsWith('00/')) {
+            if (item.batch_date === '00') {
                 item.reinspection_date = '00';
                 this.updateItem(item);
                 return;
@@ -1892,9 +1902,12 @@
                 let had00Day = false;
                 let parseDate = item.batch_date;
 
-                // Handle "00/" sentinel: day=00 means "no day", swap to 01 for parsing
+                // Handle "00/" sentinel or native "MM/YYYY": swap to 01 for parsing
                 if (parseDate.startsWith('00/')) {
                     parseDate = '01/' + parseDate.substring(3);
+                    had00Day = true;
+                } else if (parseDate.includes('/') && parseDate.split('/').length === 2) {
+                    parseDate = '01/' + parseDate;
                     had00Day = true;
                 }
 

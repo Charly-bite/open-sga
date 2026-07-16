@@ -85,9 +85,13 @@ CONFIG_FILE = Path(__file__).parent / "print_agent_config.json"
 DEFAULT_CONFIG = {
     # ── Flask agent ───────────────────────────────────────────────
     "port": 5555,
-    "host": "127.0.0.1",
+    "host": "0.0.0.0",  # Accept remote connections (for Print Tunnel)
     "allowed_origins": ["*"],  # CORS origins
     "log_level": "INFO",
+    # ── Remote tunnel support ─────────────────────────────────────
+    # API key that the Print Tunnel must send in X-Tunnel-Key header.
+    # Local requests (127.0.0.1 / browser) are always allowed.
+    "tunnel_api_key": "sga-print-tunnel-2026",
     # ── Print method ──────────────────────────────────────────────
     # "windows" → use installed Windows driver (GDI)
     # "tcp"     → send TSPL commands directly to printer IP:port
@@ -661,6 +665,40 @@ def print_image(
 app = Flask(__name__)
 
 
+# ── Remote tunnel authentication ──────────────────────────────────────
+# Requests from localhost (the browser) are always allowed.
+# Requests from remote IPs (the Print Tunnel) must include a valid
+# X-Tunnel-Key header matching the configured tunnel_api_key.
+@app.before_request
+def validate_remote_request():
+    """Block unauthenticated requests from non-local IPs."""
+    # Allow OPTIONS (CORS preflight) from anywhere
+    if request.method == "OPTIONS":
+        return None
+
+    remote_ip = request.remote_addr or ""
+    # Local requests always allowed (browser on same PC)
+    if remote_ip in ("127.0.0.1", "::1", "localhost"):
+        return None
+
+    # Remote request — validate tunnel API key
+    config = load_config()
+    expected_key = config.get("tunnel_api_key", "")
+    if not expected_key:
+        # No key configured = accept all (backwards compatible)
+        return None
+
+    provided_key = request.headers.get("X-Tunnel-Key", "")
+    if provided_key == expected_key:
+        return None
+
+    # Reject unauthorized remote request
+    logging.warning(
+        f"🚫 Rejected remote request from {remote_ip} — invalid tunnel key"
+    )
+    return jsonify({"error": "Unauthorized — invalid tunnel key"}), 403
+
+
 # CORS support for cross-origin requests from the web app
 @app.after_request
 def add_cors_headers(response):
@@ -674,7 +712,7 @@ def add_cors_headers(response):
         response.headers["Access-Control-Allow-Origin"] = origins[0] if origins else "*"
 
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, OPTIONS"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Tunnel-Key, X-Tunnel-Origin"
     response.headers["Access-Control-Max-Age"] = "3600"
     return response
 

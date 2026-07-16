@@ -713,6 +713,7 @@ class TaraWeightManager:
                         suggestions.append(
                             {
                                 **container,
+                                "tara_kg": float(override_tara),
                                 "is_default": True,
                                 "usage_pct": 100.0,
                                 "source": "tara_override",
@@ -739,6 +740,7 @@ class TaraWeightManager:
                     suggestions.append(
                         {
                             **container,
+                            "tara_kg": tara_kg,
                             "is_default": len(suggestions) == 0,
                             "usage_pct": 100.0,
                             "source": "product_history",
@@ -767,6 +769,7 @@ class TaraWeightManager:
                         suggestions.append(
                             {
                                 **container,
+                                "tara_kg": type_tara,
                                 "is_default": len(suggestions) == 0,
                                 "usage_pct": 90.0,
                                 "source": "type_table",
@@ -793,6 +796,7 @@ class TaraWeightManager:
                     suggestions.append(
                         {
                             **container,
+                            "tara_kg": tara_kg,
                             "is_default": is_default and len(suggestions) == 0,
                             "usage_pct": usage_pct,
                             "source": "statistical",
@@ -802,7 +806,7 @@ class TaraWeightManager:
 
         elif not suggestions:
 
-            # ── Priority 4: Interpolate from nearest known weight ─────────────
+            # ── Priority 4: Interpolate from nearest weight ─────────────
 
             suggestions = self._interpolate_suggestions(peso_neto)
 
@@ -1574,6 +1578,11 @@ class TaraWeightManager:
                 f_elab = str(info.get("fecha_elaboracion", "")).strip()[:10]
                 try:
                     dt = datetime.datetime.strptime(f_elab, "%Y-%m-%d")
+                    # Ignore future dates as they are likely typos (e.g., 2027 instead of 2025)
+                    # We allow up to 2 days in the future to account for timezone differences
+                    now_limit = datetime.datetime.now() + datetime.timedelta(days=2)
+                    if dt > now_limit:
+                        continue
                     has_valid_date = True
                 except ValueError:
                     dt = datetime.datetime.min

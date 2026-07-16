@@ -57,6 +57,7 @@ from generate_ghs_label import GHSLabelGenerator
 from smart_label import SmartLabelManager
 from extensions import limiter as _limiter
 from version import get_version, get_version_display, get_version_full, get_git_sha
+from webhook_queue import webhook_queue
 from sga_web.config import config
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from flask_login import LoginManager
@@ -163,7 +164,7 @@ def create_app(config_name="default"):
         from flask import flash as _flash
 
         _flash("Por favor inicie sesión para acceder.", "warning")
-        return redirect(url_for("auth.login", next=request.path))
+        return redirect(url_for("auth.login", next=request.url))
 
     # Initialize managers
     app.user_manager = UserManager(app.config["USERS_FILE"])
@@ -189,7 +190,7 @@ def create_app(config_name="default"):
     excel_path = os.path.join(PARENT_DIR, "original_data", "CLASIFICACION.xlsx")
     if os.path.exists(excel_path):
         try:
-            result = app.tara_manager.import_from_excel(excel_path)
+            result = app.tara_manager.import_from_excel(excel_path, save=False)
             print(
                 f"✅ CLASIFICACION.xlsx imported: {result.get('imported', 0)} products, "
                 f"{result.get('tara_overrides_added', 0)} tara overrides"
@@ -206,11 +207,19 @@ def create_app(config_name="default"):
         import time as _boot_time
 
         _t0 = _boot_time.time()
-        app.tara_manager.initialize_classifications(smart_label_manager=app.smart_label)
+        app.tara_manager.initialize_classifications(
+            smart_label_manager=app.smart_label, save=False
+        )
         # Run the one-time lote recovery that was previously inline in api_products()
         from routes.control_interno import run_startup_lote_recovery
 
         run_startup_lote_recovery(app)
+
+        # ── Single save after ALL startup init is done ─────────────────
+        # (import_from_excel + initialize_classifications + auto_classify
+        #  all ran with save=False to avoid 3 redundant SQL save cycles)
+        app.tara_manager._save_classifications()
+
         _elapsed = _boot_time.time() - _t0
         print(f"✅ Control Interno ready ({_elapsed:.1f}s startup)")
     except Exception as _e:
@@ -251,28 +260,12 @@ def create_app(config_name="default"):
     @login_manager.user_loader
     def load_user(user_id):
         from models import User
-        import logging as _logging
-        _log = _logging.getLogger("user_loader")
-
-        _log.info(f"[USER_LOADER] Called with user_id={user_id!r}")
 
         # Use the SQL-backed UserManager to get user details
         user_data = app.user_manager.get_user(user_id)
         if user_data:
-            _log.info(f"[USER_LOADER] Found user {user_id!r} in DB, is_active={user_data.get('is_active')}")
             return User(user_data)
-        # ── TEMPORARY BYPASS fallback ──────────────────────────────
-        # The login route allows any username (even unknown ones) to
-        # create a session.  If the user is not in the DB, build a
-        # minimal User so the session is still recognised.
-        _log.warning(f"[USER_LOADER] User {user_id!r} NOT in DB — creating temp bypass user")
-        return User({
-            "username": user_id,
-            "role": "operator",
-            "full_name": user_id,
-            "warehouse": "",
-            "must_change_password": False,
-        })
+        return None  # Register blueprints
 
     from routes.auth import auth_bp
     from routes.main import main_bp
@@ -283,7 +276,6 @@ def create_app(config_name="default"):
     from routes.api import api_bp
     from routes.templates import templates_bp
     from routes.control_interno import control_bp
-    from routes.monitor import monitor_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -294,7 +286,6 @@ def create_app(config_name="default"):
     app.register_blueprint(api_bp, url_prefix="/api")
     app.register_blueprint(templates_bp, url_prefix="/templates")
     app.register_blueprint(control_bp, url_prefix="/control")
-    app.register_blueprint(monitor_bp, url_prefix="/api")
 
     # Initialize request logging middleware (structured HTTP access logs)
     from middleware.request_logger import init_request_logger
@@ -350,11 +341,17 @@ def create_app(config_name="default"):
 
     # Register cleanup task for temp files (runs every 30 min)
     _register_temp_cleanup(app)
+    
+    # Start the persistent webhook queue worker
+    # This prevents duplicate workers if Flask auto-reloads
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true" or not app.debug:
+        webhook_queue.start_worker(interval_seconds=15)
 
     # Register background SAP sync has been moved to sync_orders_job.py to prevent threading issues
 
     # Health check endpoint for CI/CD pipeline monitoring
     @app.route("/health")
+    @app.route("/api/monitor/health")
     def health_check():
         smart_label = app.smart_label
         # Diagnostic: check UserManager state
@@ -476,8 +473,11 @@ def _register_temp_cleanup(app):
     t.start()
 
 
-# Create app instance — DEVELOPMENT environment
-app = create_app("development")
+# Create app instance based on environment variable
+env_name = os.environ.get("SGA_ENV", "development").lower()
+if env_name not in ["development", "production", "testing"]:
+    env_name = "development"
+app = create_app(env_name)
 
 
 if __name__ == "__main__":
