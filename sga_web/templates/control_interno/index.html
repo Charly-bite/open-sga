@@ -4,6 +4,15 @@
 {% block page_title %}Control Interno — Clasificación de Productos{% endblock %}
 
 {% block content %}
+<style>
+    @keyframes flashGreen {
+        0% { background-color: rgba(16, 185, 129, 0.25); }
+        100% { background-color: transparent; }
+    }
+    .animate-flash-green {
+        animation: flashGreen 2.5s ease-out;
+    }
+</style>
 <div x-data="controlInterno()" x-init="init()">
 
 
@@ -263,7 +272,10 @@
                         </template>
                         <template x-for="product in products" :key="product.product_id">
                             <tr class="hover:bg-slate-50/50 transition-colors"
-                                :class="selectedIds.includes(product.product_id) ? 'bg-blue-50/40' : ''">
+                                :class="{
+                                    'bg-blue-50/40': selectedIds.includes(product.product_id),
+                                    'animate-flash-green': justSavedId === product.product_id
+                                }">
                                 <!-- Checkbox -->
                                 <td class="pl-6 pr-2 py-3">
                                     <input type="checkbox" :value="product.product_id" x-model="selectedIds"
@@ -706,7 +718,7 @@
                         Producto</label>
                     <div class="grid grid-cols-4 gap-2">
                         <template x-for="pt in productTypes" :key="pt.id">
-                            <button @click="detailProduct.product_type = pt.id"
+                            <button @click="onProductTypeChange(pt.id)"
                                 class="px-3 py-3 rounded-xl border-2 text-center transition-all" :class="detailProduct.product_type === pt.id
                                     ? 'border-blue-500 bg-blue-50 shadow-sm'
                                     : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'">
@@ -744,30 +756,67 @@
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
                                 <template x-for="(th, index) in detailProduct.tara_history" :key="index">
                                     <div x-show="!th.deleted"
-                                        class="bg-white rounded-lg px-3 py-2 border border-slate-200 flex items-center justify-between group relative">
-                                        <div>
-                                            <div class="text-[10px] text-slate-400">Neto</div>
-                                            <div class="text-sm font-semibold text-slate-700"
-                                                x-text="th.peso_neto + ' kg'"></div>
-                                        </div>
-                                        <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                        </svg>
-                                        <div class="text-right pr-4">
-                                            <div class="text-[10px] text-slate-400">Tara</div>
-                                            <div class="text-sm font-bold text-emerald-700" x-text="th.tara_kg + ' kg'">
+                                        class="bg-white rounded-lg px-3 py-2 border border-slate-200 flex items-center justify-between group relative min-h-12 select-none"
+                                        :class="th.is_override ? 'border-blue-300 bg-blue-50/10' : ''"
+                                        @dblclick="editingTaraNeto = th.peso_neto; editTaraVal = th.tara_kg"
+                                        title="Doble click para editar">
+                                        
+                                        <!-- View Mode -->
+                                        <template x-if="editingTaraNeto !== th.peso_neto">
+                                            <div class="flex items-center justify-between w-full">
+                                                <div>
+                                                    <div class="text-[10px] text-slate-400">Neto</div>
+                                                    <div class="text-sm font-semibold text-slate-700"
+                                                        x-text="th.peso_neto + ' kg'"></div>
+                                                </div>
+                                                <svg class="w-4 h-4 text-slate-300 mx-1" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                                <div class="text-right pr-4">
+                                                    <div class="text-[10px] text-slate-400" :class="th.is_override ? 'text-blue-500 font-semibold' : 'text-slate-400'" x-text="th.is_override ? 'Tara [M]' : 'Tara'"></div>
+                                                    <div class="text-sm font-bold" :class="th.is_override ? 'text-blue-700' : 'text-emerald-700'" x-text="th.tara_kg + ' kg'">
+                                                    </div>
+                                                </div>
+                                                <button @click.stop="removeTara(th.peso_neto)" type="button"
+                                                    class="absolute right-1 top-1 bottom-1 w-6 hidden group-hover:flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 rounded bg-white border border-slate-100 shadow-sm"
+                                                    title="Eliminar">
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
-                                        </div>
-                                        <button @click="removeTara(th.peso_neto)" type="button"
-                                            class="absolute right-1 top-1 bottom-1 w-6 hidden group-hover:flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 rounded bg-white"
-                                            title="Eliminar">
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M6 18L18 6M6 6l12 12"></path>
-                                            </svg>
-                                        </button>
+                                        </template>
+
+                                        <!-- Edit Mode -->
+                                        <template x-if="editingTaraNeto === th.peso_neto">
+                                            <div class="flex items-center justify-between w-full gap-1" @click.stop @dblclick.stop>
+                                                <div class="min-w-0 flex-1">
+                                                    <div class="text-[9px] text-slate-400 font-semibold" x-text="'Neto: ' + th.peso_neto + ' kg'"></div>
+                                                    <input type="number" step="0.001" x-model="editTaraVal"
+                                                        @keyup.enter="saveTaraEdit(th)"
+                                                        @keydown.escape="editingTaraNeto = null"
+                                                        x-init="$nextTick(() => $el.focus())"
+                                                        class="w-full px-1 py-0.5 text-xs rounded border border-blue-500 shadow-inner focus:outline-none">
+                                                </div>
+                                                <div class="flex items-center gap-0.5 ml-1 pt-3">
+                                                    <button @click="saveTaraEdit(th)" type="button"
+                                                        class="p-1 text-emerald-600 hover:bg-emerald-50 rounded" title="Guardar">
+                                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                                        </svg>
+                                                    </button>
+                                                    <button @click="editingTaraNeto = null" type="button"
+                                                        class="p-1 text-red-500 hover:bg-red-50 rounded" title="Cancelar">
+                                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </template>
                                     </div>
                                 </template>
                             </div>
@@ -901,9 +950,15 @@
                     class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800 hover:bg-slate-200 rounded-lg transition-colors">
                     Cancelar
                 </button>
-                <button @click="saveDetail()"
-                    class="px-6 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
-                    Guardar Cambios
+                <button @click="saveDetail()" :disabled="savingDetail"
+                    class="px-6 py-2 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2">
+                    <template x-if="savingDetail">
+                        <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </template>
+                    <span x-text="savingDetail ? 'Guardando...' : 'Guardar Cambios'"></span>
                 </button>
             </div>
         </div>
@@ -964,8 +1019,14 @@
             showDetailModal: false,
             modalTab: 'general',
             detailProduct: {},
+            originalProductType: '',
+            originalTaraHistory: [],
             newTaraNeto: '',
             newTaraVal: '',
+            editingTaraNeto: null,
+            editTaraVal: '',
+            savingDetail: false,
+            justSavedId: null,
 
             // Toast
             toastMessage: '',
@@ -1280,6 +1341,8 @@
                         product.lote_reinspection_date = this.editLoteReinspDateValue;
                         this.toast('✅ Lote, F.Elaboracion y F.Reinspeccion actualizados');
                         this.editingLoteId = null;
+                        this.justSavedId = product.product_id;
+                        setTimeout(() => { this.justSavedId = null; }, 2500);
                         // refresh lote history if it's the active tab implicitly
                         if (this.mainTab === 'historial_lotes') {
                             this.loadLoteHistory();
@@ -1377,6 +1440,8 @@
                         p.type_source = updatedProduct.type_source || 'manual'; 
                         p.tara_history = updatedProduct.tara_history || [];
                     }
+                    this.justSavedId = productId;
+                    setTimeout(() => { this.justSavedId = null; }, 2500);
                     this.loadSummary();
                     this.toast('✅ Tipo actualizado');
                 } catch (e) {
@@ -1396,6 +1461,8 @@
                     });
                     const p = this.products.find(x => x.product_id === productId);
                     if (p) p.default_container = value;
+                    this.justSavedId = productId;
+                    setTimeout(() => { this.justSavedId = null; }, 2500);
                     this.toast('✅ Envase actualizado');
                 } catch (e) {
                     console.error('Error updating container:', e);
@@ -1471,10 +1538,41 @@
                     dp.lote_date = dp.lote_date || '';
                     dp.lote_reinspection_date = dp.lote_reinspection_date || '';
                     this.detailProduct = dp;
+                    this.originalProductType = dp.product_type || '';
+                    this.originalTaraHistory = JSON.parse(JSON.stringify(dp.tara_history || []));
                     this.autoFillDetailReinspectionFromElab();
                     this.showDetailModal = true;
                 } catch (e) {
                     console.error('Error loading detail:', e);
+                }
+            },
+
+            async onProductTypeChange(typeId) {
+                if (this.detailProduct.product_type === typeId) return;
+
+                if (typeId === this.originalProductType) {
+                    // Revert to original type and tara history (including its overrides)
+                    this.detailProduct.product_type = typeId;
+                    this.detailProduct.tara_history = JSON.parse(JSON.stringify(this.originalTaraHistory));
+                    return;
+                }
+
+                this.detailProduct.product_type = typeId;
+                try {
+                    const res = await fetch(`/control/api/tara-table/${typeId}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        const table = data.tara_table || {};
+                        this.detailProduct.tara_history = Object.entries(table).map(([netoStr, taraVal]) => {
+                            return {
+                                peso_neto: parseFloat(netoStr),
+                                tara_kg: parseFloat(taraVal),
+                                is_override: false
+                            };
+                        }).sort((a, b) => a.peso_neto - b.peso_neto);
+                    }
+                } catch (e) {
+                    console.error('Error loading type tara table:', e);
                 }
             },
 
@@ -1492,8 +1590,9 @@
                 if (existingIdx >= 0) {
                     this.detailProduct.tara_history[existingIdx].tara_kg = tara;
                     this.detailProduct.tara_history[existingIdx].deleted = false;
+                    this.detailProduct.tara_history[existingIdx].is_override = true;
                 } else {
-                    this.detailProduct.tara_history.push({ peso_neto: neto, tara_kg: tara });
+                    this.detailProduct.tara_history.push({ peso_neto: neto, tara_kg: tara, is_override: true });
                     this.detailProduct.tara_history.sort((a, b) => a.peso_neto - b.peso_neto);
                 }
 
@@ -1507,23 +1606,38 @@
                 const idx = this.detailProduct.tara_history.findIndex(t => t.peso_neto === neto);
                 if (idx >= 0) {
                     this.detailProduct.tara_history[idx].deleted = true;
+                    this.detailProduct.tara_history[idx].is_override = true;
                 }
             },
 
+            saveTaraEdit(th) {
+                const val = parseFloat(this.editTaraVal);
+                if (isNaN(val) || val < 0) return;
+                th.tara_kg = val;
+                th.is_override = true;
+                th.deleted = false;
+                this.editingTaraNeto = null;
+            },
+
             async saveDetail() {
+                if (this.savingDetail) return;
+                this.savingDetail = true;
                 try {
                     this.autoFillDetailReinspectionFromElab();
                     let overrides = {};
-                    // Include original overrides, we must preserve what was there or deleted
-                    // But honestly, whatever is in detailProduct.tara_history is the ground truth
-                    if (this.detailProduct.tara_history && this.detailProduct.tara_history.length > 0) {
-                        this.detailProduct.tara_history.forEach(t => {
-                            if (t.deleted) {
-                                overrides[t.peso_neto.toString()] = -1; // -1 signifies deleted
-                            } else {
-                                overrides[t.peso_neto.toString()] = parseFloat(t.tara_kg);
-                            }
-                        });
+                    // Only include overrides if the product type didn't change in the modal
+                    if (this.detailProduct.product_type === this.originalProductType) {
+                        if (this.detailProduct.tara_history && this.detailProduct.tara_history.length > 0) {
+                            this.detailProduct.tara_history.forEach(t => {
+                                if (t.is_override) {
+                                    if (t.deleted) {
+                                        overrides[t.peso_neto.toString()] = -1; // -1 signifies deleted
+                                    } else {
+                                        overrides[t.peso_neto.toString()] = parseFloat(t.tara_kg);
+                                    }
+                                }
+                            });
+                        }
                     }
 
                     const res = await fetch(`/control/api/products/${this.detailProduct.product_id}`, {
@@ -1542,12 +1656,16 @@
                     const data = await res.json();
                     if (data.success) {
                         this.showDetailModal = false;
+                        this.justSavedId = this.detailProduct.product_id;
+                        setTimeout(() => { this.justSavedId = null; }, 2500);
                         this.toast('✅ Cambios guardados');
                         this.loadProducts(this.currentPage);
                         this.loadSummary();
                     }
                 } catch (e) {
                     console.error('Error saving detail:', e);
+                } finally {
+                    this.savingDetail = false;
                 }
             },
 

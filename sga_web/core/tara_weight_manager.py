@@ -1149,8 +1149,9 @@ class TaraWeightManager:
         return {
             "total_products_with_history": sum(
                 1
-                for code in self._product_tara_cache
+                for code, p in self._product_classifications.items()
                 if not should_exclude_from_control_interno(code)
+                and p.get("tara_overrides")
             ),
             "total_products_classified": classified,
             "total_products_unclassified": unclassified,
@@ -1221,23 +1222,9 @@ class TaraWeightManager:
 
                     classifications[pid] = props
 
-                    # Also populate the tara history cache if present
-
-                    if "tara_history" in props and isinstance(
-                        props["tara_history"], list
-                    ):
-
-                        if pid not in self._product_tara_cache:
-
-                            self._product_tara_cache[pid] = {}
-
-                        for th in props["tara_history"]:
-
-                            if "peso_neto" in th and "tara_kg" in th:
-
-                                self._product_tara_cache[pid][
-                                    float(th["peso_neto"])
-                                ] = float(th["tara_kg"])
+                    # Commented out loading of tara_history column into _product_tara_cache
+                    # to prevent dynamic type-specific weights from contaminating the historical cache.
+                    pass
 
                 self._product_classifications = classifications
 
@@ -1432,7 +1419,7 @@ class TaraWeightManager:
                     "batch_numbers",
                     "lote",
                     "lotes_info",
-                    "tara_history",
+                    # "tara_history" is a calculated UI field, do not save to SQL column
                     "requires_attention",
                     "lote_date",
                     "lote_reinspection_date",
@@ -2194,14 +2181,25 @@ class TaraWeightManager:
         """Update a product classification."""
 
         if should_exclude_from_control_interno(product_id):
-
             return False
 
         if product_id not in self._product_classifications:
-
             return False
 
         entry = self._product_classifications[product_id]
+
+        # Check if product_type is changing
+        old_type = entry.get("product_type", "")
+        new_type = updates.get("product_type")
+
+        # If product type changed (or is being set to empty/different), clear tara_overrides and default_container
+        if new_type is not None and new_type != old_type:
+            entry["tara_overrides"] = {}
+            entry["default_container"] = ""
+            # Filter them out of updates so they don't overwrite the cleared values
+            updates = dict(updates)
+            updates.pop("tara_overrides", None)
+            updates.pop("default_container", None)
 
         allowed_fields = [
             "product_type",
@@ -2216,19 +2214,14 @@ class TaraWeightManager:
         ]
 
         for field in allowed_fields:
-
             if field in updates:
-
                 entry[field] = updates[field]
 
         # Mark as manually classified if product_type was set
-
         if "product_type" in updates and updates["product_type"]:
-
             entry["type_source"] = "manual"
 
         self._save_classifications()
-
         return True
 
     def bulk_update_type(self, product_ids: List[str], product_type: str) -> int:
@@ -2239,19 +2232,19 @@ class TaraWeightManager:
         for pid in product_ids:
 
             if should_exclude_from_control_interno(pid):
-
                 continue
 
             if pid in self._product_classifications:
-
-                self._product_classifications[pid]["product_type"] = product_type
-
-                self._product_classifications[pid]["type_source"] = "manual"
-
-                count += 1
+                entry = self._product_classifications[pid]
+                old_type = entry.get("product_type", "")
+                if old_type != product_type:
+                    entry["product_type"] = product_type
+                    entry["type_source"] = "manual"
+                    entry["tara_overrides"] = {}
+                    entry["default_container"] = ""
+                    count += 1
 
         if count > 0:
-
             self._save_classifications()
 
         return count

@@ -358,43 +358,48 @@ def api_products():
 
     # Enrich with tara history and lote expiration check
     from datetime import datetime
+    import copy
 
+    enriched_products = []
     for p in products:
-        elab_date, reinsp_date = _resolve_lote_dates(p)
-        p["lote_date"] = _format_date_for_ui(elab_date)
-        p["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
+        # Create a deep copy of the classification dict to avoid mutating the cached ones in tara_manager
+        p_copy = copy.deepcopy(p)
+        elab_date, reinsp_date = _resolve_lote_dates(p_copy)
+        p_copy["lote_date"] = _format_date_for_ui(elab_date)
+        p_copy["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
 
-        pid = p.get("product_id", "")
+        pid = p_copy.get("product_id", "")
         history = tara_mgr.get_product_known_tara(pid)
 
         # Merge type-specific general tara table so they show up as known
-        ptype = p.get("product_type")
+        ptype = p_copy.get("product_type")
         if ptype:
             type_table = tara_mgr.get_tara_table_for_type(ptype)
             for k, v in type_table.items():
                 if k not in history:
                     history[k] = v
 
-        p["tara_history"] = [
+        p_copy["tara_history"] = [
             {"peso_neto": k, "tara_kg": v}
             for k, v in sorted(history.items())
             if v >= 0  # Filter out logically deleted items
         ]
 
         # Check active lote expiration
-        p["requires_attention"] = False
+        p_copy["requires_attention"] = False
         if reinsp_date:
             try:
                 insp_date = datetime.strptime(reinsp_date, "%Y-%m-%d")
                 # 6 months = roughly 180 days
                 if (insp_date - datetime.now()).days <= 180:
-                    p["requires_attention"] = True
+                    p_copy["requires_attention"] = True
             except ValueError:
                 pass
+        enriched_products.append(p_copy)
 
     return jsonify(
         {
-            "products": products,
+            "products": enriched_products,
             "total": total,
             "page": page,
             "per_page": per_page,
@@ -448,9 +453,13 @@ def api_product_detail(product_id):
     except Exception as exc:
         logger.warning(f"Lote recovery in detail failed for {product_id}: {exc}")
 
+    # Create a deep copy of the classification dict to avoid mutating the cached copy in tara_manager
+    import copy
+    classification_ui = copy.deepcopy(classification)
+
     # Format history dates for UI
     try:
-        lote_history = classification.get("lote_history", [])
+        lote_history = classification_ui.get("lote_history", [])
         if isinstance(lote_history, list) and lote_history:
             formatted_history = []
             for entry in lote_history:
@@ -463,37 +472,51 @@ def api_product_detail(product_id):
                     fe["old_reinsp_date"] = _format_date_for_ui(fe.get("old_reinsp_date", ""))
                     fe["new_reinsp_date"] = _format_date_for_ui(fe.get("new_reinsp_date", ""))
                     formatted_history.append(fe)
-            classification["lote_history"] = formatted_history
+            classification_ui["lote_history"] = formatted_history
     except Exception as exc:
         logger.warning(f"Lote history formatting failed for {product_id}: {exc}")
 
-    elab_date, reinsp_date = _resolve_lote_dates(classification)
-    classification["lote_date"] = _format_date_for_ui(elab_date)
-    classification["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
+    elab_date, reinsp_date = _resolve_lote_dates(classification_ui)
+    classification_ui["lote_date"] = _format_date_for_ui(elab_date)
+    classification_ui["lote_reinspection_date"] = _format_date_for_ui(reinsp_date)
 
-    classification["requires_attention"] = False
+    classification_ui["requires_attention"] = False
     if reinsp_date:
         try:
             insp_date = datetime.strptime(reinsp_date, "%Y-%m-%d")
             if (insp_date - datetime.now()).days <= 180:
-                classification["requires_attention"] = True
+                classification_ui["requires_attention"] = True
         except ValueError:
             pass
 
     history = tara_mgr.get_product_known_tara(product_id)
 
-    ptype = classification.get("product_type")
+    ptype = classification_ui.get("product_type")
     if ptype:
         type_table = tara_mgr.get_tara_table_for_type(ptype)
         for k, v in type_table.items():
             if k not in history:
                 history[k] = v
 
-    classification["tara_history"] = [
-        {"peso_neto": k, "tara_kg": v} for k, v in sorted(history.items()) if v >= 0
+    db_overrides = classification_ui.get("tara_overrides", {})
+    override_keys = set()
+    if isinstance(db_overrides, dict):
+        for k_str in db_overrides.keys():
+            try:
+                override_keys.add(float(k_str))
+            except (ValueError, TypeError):
+                pass
+
+    classification_ui["tara_history"] = [
+        {
+            "peso_neto": k,
+            "tara_kg": v,
+            "is_override": (k in override_keys)
+        }
+        for k, v in sorted(history.items()) if v >= 0
     ]
 
-    return jsonify(classification)
+    return jsonify(classification_ui)
 
 
 @control_bp.route("/api/lotes/template", methods=["GET"])
